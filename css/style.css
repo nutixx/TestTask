@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(0deg, rgb(2, 0, 36) 0%, rgb(118, 9, 121) 100%);
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .spinBtn {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: rgb(255, 255, 255);
+  background: radial-gradient(circle, rgb(255, 255, 255) 40%, rgb(2, 0, 36) 100%);
+  border-radius: 50%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #333;
+  letter-spacing: 0.1em;
+  border: 4px solid rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.container .wheel {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #333;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px #333, 0 0 0 15px #fff, 0 0 0 32px #111;
+  overflow: hidden;
+}
+.container .wheel .segment {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  transform-origin: bottom right;
+  -webkit-clip-path: polygon(0 0, 50% 0, 100% 100%, 0 50%);
+          clip-path: polygon(0 0, 50% 0, 100% 100%, 0 50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.container .wheel .segment span {
+  position: relative;
+  transform: rotate(-135deg);
+  font-size: 1.1em;
+  font-weight: 700;
+  text-shadow: 3px 5px 2px rgba(0, 0, 0, 0.1);
+}
+.container .wheel .segment:nth-of-type(odd) {
+  background: rgb(255, 255, 255);
+  background: radial-gradient(circle, rgb(255, 255, 255) 40%, rgb(2, 0, 36) 100%);
+}
+.container .wheel .segment:nth-of-type(even) {
+  background: rgb(255, 0, 0);
+  background: radial-gradient(circle, rgb(255, 0, 0) 40%, rgb(2, 0, 36) 100%);
+}
+
+.container::before {
+  position: absolute;
+  content: "";
+  right: -4px;
+  top: calc(50% - 25px);
+  width: 0;
+  height: 0;
+  z-index: 1;
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+  border-right: 15px solid #333;
+}
+
+.container::after {
+  position: absolute;
+  content: "";
+  right: -10px;
+  top: calc(50% - 25px);
+  width: 0;
+  height: 0;
+  z-index: 2;
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+  border-right: 17px solid rgb(255, 255, 255);
+}
+
+@media (max-width: 540px) {
+  .container {
+    scale: 0.8;
+  }
+  .container .spinBtn {
+    scale: 1.2;
+  }
+}
+@media (max-width: 440px) {
+  .container {
+    scale: 0.6;
+  }
+  .container .spinBtn {
+    scale: 1.5;
+  }
+}/*# sourceMappingURL=style.css.map */
